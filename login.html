@@ -11,6 +11,7 @@
 
     
     <link rel="sortcut icon" href="img/iconetopo.jpg" type="image/jpg" />
+    
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/loginNovo.css" type="text/css">
+
     
 </head>
 
@@ -64,15 +66,27 @@
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    
-    <div style="text-align: center; position: relative;" >
+    <header class="header-section">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
                         <a href="./index.html">
-                           
+                            <img src="img/logoo.png" alt="">
                         </a>
                     </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./about-us.html">A Empresa</a></li>
+                            <li><a href="./services.html">Cursos</a></li>
+                           <!--  <li><a href="https://podiumcursos.ouromoderno.com.br/">Loja Virtual</a></li> -->
+                            <li class="active"><a href="./login.html">Login</a></li>
+                            <li><a href="./contact.html">Contato</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="top-option">
@@ -92,36 +106,34 @@
                 <i class="fa fa-bars"></i>
             </div>
         </div>
+    </header>
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
-            <section class="loginSection">
-                <div id="loginLogo">
-                    <img id="logoimg" src="img/logoo.png" alt="">
+    <section class="login">
+        <div class="container">
+            <div class="row">
+                <div class="login-imagem col-12 col-md-4">
+                    <img class="img-fluid" src="./img/Logo.png" alt="Grupo Podium Logomarca">
+                </div>
+                <div class="login-div col-12 col-md-4">
+                    <p class="titulo">Entre com seu cadastro</p>
+                    <form method="post" action="valida.php">
+                        <input type="hidden" name="_token" value="PG9KJSXDEDSJsYlSYuH7Q5ZHBKxbyxqcIOrntZba">
+                        <input class="col-12" type="text" name="usuario" id="usuario" placeholder="Usuário" required>
+                        <input class="col-12" type="password" name="senha" id="senha" placeholder="Senha" required>
+                        <input class="col-12" type="submit" name="submit" id="submit" value="Entrar">
+                    </form>
+                        <a href="./usuario.php">Esqueci minha senha</a>
+                        <a href="./index.html">Voltar</a>
                 </div>
                 
-                <div id="loginLogin">
-                    <label>Entre com seu cadastro</label>
-                <form method="post" action="valida.php">
-                    <div>
-                        <input class="col-15" type="text" name="usuario" id="usuario" placeholder="  Usuário" required>
-                    </div>
-                    <div>
-                        <input class="col-15" type="password" name="senha" id="senha" placeholder="  Senha" required>
-                    </div>
-                    <div>
-                        <input class="col-10" type="submit" name="submit" id="submit" value="Entrar">
-                    </div>
-                
-                    
-                    <a href="index.html">Voltar</a>
-                    <a href="usuario.php">Esqueci minha senha</a><br>
-                   
-                </form>
+                <div class="col-12 col-md-8 p-0 mt-2">
                 </div>
-            </section>   
+            </div>
+        </div> 
+    </section>
                                            
-    </body>
                                <!-- <a href="#" class="primary-btn">Saiba Mais</a>-->
                             </div>
                         </div>

@@ -4,12 +4,13 @@
     margin:0;
 }
 /* VALIDO PARA O ARQUIVO LOGIN.HTML */
-section.loginSection{
+/*section.loginSection{
     
     display: flex;
     align-items: center;
-    /*background-image: url(/topo/img/apertomao.jpg);*/
+    background-image: url(/topo/img/apertomao.jpg); // comentar se voltar
     width: 700px;
+    height: 570px;
     margin-left: 45vh;
     
 }
@@ -27,6 +28,7 @@ div#loginLogin{
     height: 300px;
     width: 400px;
     background-color: rgb(111, 155, 238);
+    align-items: center;
 }
 form{
     font-family: Arial, Helvetica, sans-serif;
@@ -65,6 +67,136 @@ form input[type=submit]:hover{
     animation-duration: 3s;
     color: white;
 }
+*/
+body{
+    color: white;
+    background: linear-gradient(151deg, rgba(0,208,255,1) 0%, rgba(0,90,159,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+footer span{
+    opacity: .5;
+}
+
+.login{
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.login-imagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.login-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-div p{
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.login-div form input{
+    margin: 10px 0px;
+    border-radius: 100px;
+    border: 2px solid white;
+    height: 40px;
+    color: white;
+    background-color: transparent;
+    outline: none;
+}
+
+.login-div form input::placeholder{
+    color: white;
+}
+
+.login-div form input[type='submit']{
+    margin-top: 20px;
+    background-color: white;
+    color: #005ca1;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.login div form input[type='submit']:hover{
+    background-color: #e67e22;
+    border-color: #e67e22;
+    color: white;
+}
+.titulo{
+    font-size:large;
+    color: aliceblue;
+}
+a:link {
+    color: white;
+   }
+   
+a:hover {
+
+    color:#e67e22;
+   }
+   
+
+@media (min-width: 1200px)
+{
+    body{
+        background: black;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .login-imagem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../img/apertomao.jpg);
+        background-position: center;
+        min-height: 350px;
+        box-shadow: 2px 2px 5px #00000050;
+    }
+
+    .login{
+        background-color: transparent;
+    }
+
+    .login-div{
+        background: linear-gradient(151deg, #009fd7, rgba(0,90,159,1) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0px 50px;
+        box-shadow: 2px 2px 5px #00000050;
+    }
+
+    footer{
+        color: white;
+        background-color: rgba(30,30,30,.5);
+        padding: 10px;
+    }
+}
 /* VALIDO PARA O ARQUIVO USUARIO.PHP */
 body.usuario a{
     border: 2px solid white;
@@ -96,6 +228,7 @@ body.usuario div.usuarioDiv form input[type=submit]{
     color: blue;
     height: 100px;
 }
+
 /* VALIDO PARA O ARQUIVO TESTE.PHP */
 body.teste{
     background-color: aqua;
