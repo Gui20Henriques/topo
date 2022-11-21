@@ -1,7 +1,9 @@
+/* VALIDO PARA TODOS OS ARQUIVOS*/
 *{
     padding:0;
     margin:0;
 }
+/* VALIDO PARA O ARQUIVO LOGIN.HTML */
 section.loginSection{
     
     display: flex;
@@ -63,14 +65,38 @@ form input[type=submit]:hover{
     animation-duration: 3s;
     color: white;
 }
-a{
-    
-    margin-left: 10vh; 
+/* VALIDO PARA O ARQUIVO USUARIO.PHP */
+body.usuario a{
     border: 2px solid white;
-    border-radius: 20px;
-    color: blue;
-    background-color: white;
+    border-radius: 10px;
+    color: white;
+    background-color: blue;
+    padding: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
+div.usuarioDiv{
+    justify-content: center;
+    align-items: center;
+}
+body.usuario h1{
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 5vh;
+    margin-left: 15vh;
+    font-size: 30px;
+}
+body.usuario div.usuarioDiv img{
+    border-radius:110px;
+    width:20vw;
+    margin-left: 10vh;
+    height: 35vh;
+}
+body.usuario div.usuarioDiv form input[type=submit]{
+    background-color: white;
+    color: blue;
+    height: 100px;
+}
+/* VALIDO PARA O ARQUIVO TESTE.PHP */
 body.teste{
     background-color: aqua;
 }
