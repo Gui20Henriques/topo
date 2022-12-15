@@ -92,7 +92,6 @@
                             function mostraCurso".$c['ID_Curso']."(){
                             let d = document.getElementsByClassName('cursoConteudo');
                             let u = document.querySelectorAll('#oi2');;
-                            console.log(u);
                             let e = document.getElementsByClassName('cursoTela');
                             for (let i = 0; i < e.length; i++) {
                               e[i].style.display = 'none';
@@ -101,7 +100,6 @@
                             let i2 = 0;            
                             for(let i3 = 0; i3 < d.length; i3++){
                                if(i2<u.length && u[i3].getAttribute('name') ==".$c['ID_Curso']."){
-                                     console.log(i2);
                                      d[i3].style.display = 'block';
                                      i2++;
                                 }
@@ -110,7 +108,23 @@
                         </script>";
             for($i2 = 1; $aulas >= $i2;$i2++){
                 echo "<div style='text-align:center;display:none' id = 'oi2' name='".$c['ID_Curso']."'>Aula:".$i2."<img  src='cursos/".$c['ID_Curso']."/".$c['ID_Curso'].".png'>"
-                ."<a href=>Fase ".$i2."</a></div>";
+                ."<a onclick='mostraFase".$c['ID_Curso']."aula".$i2."()'>Fase ".$i2."</a></div>";
+                echo "<div id='modal2' name='Curso".$c['ID_Curso']."Aula".$i2."'>
+                <a onclick='fechaFase".$c['ID_Curso']."aula".$i2."()'>xx</a>
+                <div id='modal2Cont'>Curso:".$c['ID_Curso']." Aula:".$i2." 
+                </div>
+                <div><a href='cursos/".$c['ID_Curso']."/".$i2."/img/0.jpg'>AULA</a><a href=''>APOSTILA</a><a href='cursos/".$c['ID_Curso']."/".$i2."/fixacao.pdf'>FIXAÇÃO</a><a href='cursos/".$c['ID_Curso']."/".$i2."/teste.txt'>TESTE</a></div>
+                </div>
+                <script>
+                    function mostraFase".$c['ID_Curso']."aula".$i2."(){
+                        let contFase = document.getElementsByName('Curso".$c['ID_Curso']."Aula".$i2."');
+                        contFase[0].style.display = 'block';
+                    }
+                    function fechaFase".$c['ID_Curso']."aula".$i2."(){
+                        let contFase = document.getElementsByName('Curso".$c['ID_Curso']."Aula".$i2."');
+                        contFase[0].style.display = 'none';
+                    }
+                </script>";
                 $i3++;
             }     
             $i++;

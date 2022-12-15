@@ -172,7 +172,7 @@ a:hover {
     }
 }
 /* VALIDO PARA O ARQUIVO USUARIO.PHP */
- /* div.usuarioDiv a{
+ div.usuarioDiv a{
     border-radius: 10px;
     color: white;
     background-color: rgb(3, 118, 248);
@@ -191,7 +191,7 @@ div.usuarioDiv div#usuarioId{
     margin-top:20vh; 
     padding: 20px;
 } */
-/* body.usuario h1{
+body.usuario h1{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-top: 5vh;
     margin-left: 15vh;
@@ -211,7 +211,7 @@ body.usuario div.usuarioDiv button{
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
     margin-right: 10px;
-} */
+}
 #modal{
     border: 1px solid black;
     display: none;
@@ -254,7 +254,7 @@ body.usuario div.usuarioDiv button{
     margin-right: -2vh;
     animation: modal 1s;
 }
-/* #cursos{
+#cursos{
    width: 100%;
    align-items: center;
     display: flex;
@@ -263,15 +263,16 @@ body.usuario div.usuarioDiv button{
     justify-content: center;
     background-color: aquamarine;
     
-} */
+}
 
-/* #oi{
+#oi{
     margin-top: 12px;    
     align-items: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bolder;
-} */
-/* 
+}
+
+
 .cursoTela{
     border: 1px solid;
     height: 250px;
@@ -338,8 +339,26 @@ body.usuario div.usuarioDiv button{
      width:190px; 
      height: 120px;
      justify-content: center;
- }
-  */
+ } 
+
+#modal2{
+    border: 1px solid black;
+    display: none;
+    width: 30vw;
+    height: 30vh;
+    position:absolute;
+    margin-bottom: 60vh;
+    background-color: white;
+    animation: modal 1s;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+#modal2Cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* VALIDO PARA O ARQUIVO TESTE.PHP */
 body.teste{
     background-color: aqua;
