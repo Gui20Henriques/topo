@@ -13,20 +13,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/loginNovo.css" type="text/css">
-    <script src="js/constroi.js"> </script>
+    <title>Topo Treinamentos - Página Usuário</title>
+    <link rel="sortcut icon" href="img/iconetopo.jpg" type="image/jpg" />
+    <!-- Required meta tags -->
+        <meta name="_token" content="0rst8mWDOBYtdlO3S9n1q798kxr7p0XycsoPLd6h">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/aluno/layout-aluno.css" type="text/css">
+        <link rel="stylesheet" href="css/loginNovo.css" type="text/css">
+        <script src="js/constroi.js"> </script>
 </head>
+<header class="topo">
+            <div class="background">
+                <img src="https://topotreinamentos.com.br/ead/Sistema/public/storage/img/propagandas/4.png" class="img-fluid">
+            </div>
+            <div class="container relativo">
+                <div class="menu">
+                    <button class="btn btn-primary" type="button" onclick="altera();">Alterar Avatar</button>
+                    <button href="certificado.php" class="btn btn-primary">Baixar</button>
+                    <button href="index.html" class="btn btn-danger btn-sm loaderBtn"> Sair </button>
+
+                </div>
+
+                <?php 
+                    if(!isset($_SESSION)){session_start();}
+                    $arquiv = "SELECT imagem FROM alunos WHERE ID_ALUNO = '{$_SESSION['ID_Aluno']}'";
+                    $result = $mysqli->query($arquiv) or die($mysqli->error);
+                    $row = mysqli_fetch_array($result);
+                    echo '<img class="perfil" src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '" />';
+                ?>>
+                
+                <div class="nome">
+                    <?php if(!isset($_SESSION)){session_start();}
+                    echo $_SESSION['nome'];
+                    ?>
+                </div>
+            </div>
+</header>
 <!-- CORPO DA PAGINA USUARIO -->
 <body class="usuario">
     <!-- CABEÇALHO DA PAGINA -->
-    <nav>
-        <img style="width:100%; height: 30vh;" src="img/logonav.png">
-        
-    </nav>
-    <div sytle="display:flex;">
-    <div id="modal">   
-        <button type="button" onclick="fecha()">X</button>
+
+    <div style="display:flex;">
+        <div id="modal">   
+            <button type="button" onclick="fecha()">X</button>
                 <h3>Selecione um avatar</h3>
                     <form  method="POST" enctype="multipart/form-data">
 		                <label for="imagem">Imagem:</label>
@@ -36,59 +68,17 @@
         </div>
     </div>
     <!-- TROCA AVATAR DO USUARIO E VOLTA NA PAGINA INICIAL -->
-    <div class="usuarioDiv">
-        <?php 
-        if(!isset($_SESSION)){session_start();}
-        $arquiv = "SELECT imagem FROM alunos WHERE ID_ALUNO = '{$_SESSION['ID_Aluno']}'";
-        $result = $mysqli->query($arquiv) or die($mysqli->error);
-        $row = mysqli_fetch_array($result);
-        echo '<img id="fotoLogin" src="data:image/jpeg;base64,' . base64_encode( $row['imagem'] ) . '" />';
-        ?>>
-        <div id="usuarioId">
-        <p style="font-size:30px;margin-top:-5vh;margin-bottom:2vh"><?php if(!isset($_SESSION)){session_start();}
-            echo $_SESSION['nome'];
-            ?>
-        </p>
-        
-        <button type="button" onclick="altera()">Alterar Avatar</button>
-        <a href="index.html">SAIR</a>
-        <a href="certificado.php">BAIXAR</a>
-        </div>
-    </div>
     
     <hr>
     <!--CURSOS DO ALUNO -->
-    <h1>Seus Cursos</h1><br> 
-    
-   <div id="cursos">
-   <div id="cursoCont">
-        <a href="javascript:volta();">Voltar</a>
-    </div>
+        
+    <section id="aulas">
+        <div class="container">
+            <p class="section-titulo">Seus cursos</p>
+            <div class="row">
+                    
     <?php 
-        /*
-        $consulta = "SELECT * FROM cursos";
-        $consulta2 = "SELECT * FROM aluno_curso_progressos";
-        $con = $mysqli->query($consulta) or die($mysqli->error);
-        $con2 = $mysqli->query($consulta2) or die($mysqli->error);
-        $i = 0;
-        while($c2 = mysqli_fetch_array($con2)){
-            if($c2['ID_Aluno'] ==  $_SESSION['ID_Aluno']){
-                while($c = mysqli_fetch_array($con)){ 
-                    if($c['ID_Curso'] == $c2['ID_Curso']){
-                        echo "<div style='text-align:center' id = 'oi'>".$c['Nome_curso']."<img  src='img/apertomao.jpg'>"
-                        ."<a>Acessar Curso</a>"."</div>";
-                        $i++;
-                        break;
-                    }
-                } 
-            } 
-         }
-         while($i>0){
-            echo "<script>adcElemento()</script>";
-            $i--;
-         }
-         
-        */
+       
         $oi = $_SESSION['ID_Aluno']; $i = 0;
         $consulta = "SELECT cursos.Nome_curso, cursos.ID_Curso from alunos join aluno_curso_progressos ON aluno_curso_progressos.ID_Aluno = alunos.ID_Aluno join cursos ON cursos.ID_Curso = aluno_curso_progressos.ID_Curso WHERE alunos.ID_Aluno = $oi";
         $con = $mysqli->query($consulta) or die($mysqli->error);
@@ -98,8 +88,7 @@
             $consulta2 = "SELECT cursos.aulas_totais from cursos join aluno_curso_progressos ON aluno_curso_progressos.ID_Curso = cursos.ID_Curso join alunos ON aluno_curso_progressos.ID_Aluno = alunos.ID_Aluno WHERE alunos.ID_Aluno = $oi and cursos.ID_Curso = $oi2";
             $con2 = $mysqli->query($consulta2) or die($mysqli->error);
             $aulas = mysqli_fetch_array($con2)[0];
-            echo "<div style='text-align:center' id = 'oi'>".$c['Nome_curso']."<img  src='cursos/".$c['ID_Curso']."/".$c['ID_Curso'].".png'>"
-                        ."<a onclick='mostraCurso".$c['ID_Curso']."();'>Acessar Curso</a></div><script>
+            echo "<div class='col-12 col-md-4 col-lg-3 p-2'><div class='col-12 curso p-3'><img class='imagem-curso' src='cursos/".$c['ID_Curso']."/".$c['ID_Curso'].".png'><div class = 'nome-curso'>".$c['Nome_curso']."<button class='acessar loaderBtn' onclick='mostraCurso".$c['ID_Curso']."();'>Acessar Curso</button></div></div></div><script>
                             function mostraCurso".$c['ID_Curso']."(){
                             let d = document.getElementsByClassName('cursoConteudo');
                             let u = document.querySelectorAll('#oi2');;
@@ -134,7 +123,11 @@
             echo "<script>adcCurso();</script>";
             $i3--;
         }
-    ?>      
-    </div>
+    ?>  
+              
+            </div>
+        </div>
+    </section>
+    </hr>
 </body>
 </html>
