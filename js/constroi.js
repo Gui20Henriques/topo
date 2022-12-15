@@ -21,7 +21,15 @@ function muda4(){
   document.getElementById("muda2").style.display = "none";
   document.getElementById("muda").style.display = "block";
 
-}    
+}   
+function mostrarSenha() {
+  var senha = document.getElementById("senha");
+  if (senha.type === "password") {
+    senha.type = "text";
+  } else {
+    senha.type = "password";
+  }
+}   
  function altera(){
    document.getElementById("modal").style.display = "flex";
  }

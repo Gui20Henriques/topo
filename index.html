@@ -120,7 +120,8 @@
                         <form method="POST" action="usuario.php">
                            
                             <input class="col-12" type="text" name="ID_Aluno"  placeholder="Usuário" required>
-                            <input class="col-12" type="password" name="Senha"placeholder="Senha" required>
+                            <input id="senha" class="col-12" type="password" name="Senha" placeholder="Senha" required>
+                            <input type="checkbox" onclick="mostrarSenha();"> Mostrar senha 
                             <input class="col-12" type="submit" name="submit" id="submit" value="Entrar">
                         </form>
                             <a href="javascript:muda3();">Esqueci minha senha</a>
